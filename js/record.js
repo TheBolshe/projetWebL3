@@ -5,14 +5,15 @@ var data = {
   array: []
 };
 
-var buffer = {
-  date: 0,
-  x: 0,
-  y: 0,
-  z: 0,
-  alpha: 0,
-  beta: 0,
-  gamma: 0
+var buffer = {}
+
+function clear() {
+  time = 0;
+  data = {
+    array: []
+  };
+  buffer = {};
+  document.getElementById("test2").innerHTML = "";
 }
 
 /*
@@ -24,14 +25,12 @@ function orientation(event) {
   buffer.alpha = event.alpha;
   buffer.beta = event.beta;
   buffer.gamma = event.gamma;
-  //document.getElementById("test2").innerHTML = "<ul><li>Alpha : " + buffer.alpha + "</li><li>Beta : " + buffer.beta + "</li><li>Gamma : " + buffer.gamma + "</li></ul>";
 }
 
 function motion(event) {
   buffer.x = event.acceleration.x;
   buffer.y = event.acceleration.y;
   buffer.z = event.acceleration.z;
-  //document.getElementById("test1").innerHTML = "<ul><li>X : " + buffer.x + "</li><li>Y : " + buffer.y + "</li><li>Z : " + buffer.z + "</li></ul>";
 }
 
 /*
@@ -51,7 +50,7 @@ function startCapture() {
     console.log("DeviceOrientationEvent is not supported");
   intervalID = window.setInterval(function() {
     record()
-  }, 100);
+  }, 50);
 }
 
 /*
@@ -67,6 +66,7 @@ function stopCapture() {
   var jData = JSON.stringify(data, null, "\t");
   //document.getElementById('test1').innerHTML = jData;
   //$.post("",jData);
+  clear();
 }
 
 /*

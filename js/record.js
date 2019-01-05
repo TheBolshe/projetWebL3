@@ -52,20 +52,24 @@ function stopCapture() {
   intervalID = 0;
   var jData = JSON.stringify(data, null, "\t");
   //document.getElementById('test1').innerHTML = jData;
-  $.post("",jData);
+  //$.post("",jData);
+}
+
+function copyStruct(input) {
+  var out = {};
+  out.date = input.date;
+  out.x = input.x;
+  out.y = input.y;
+  out.z = input.z;
+  out.alpha = input.alpha;
+  out.beta = input.beta;
+  out.gamma = input.gamma;
+  return out;
 }
 
 function record() {
-  var b = {};
   buffer.date = time;
-  b.date = buffer.date;
-  b.x = buffer.x;
-  b.y = buffer.y;
-  b.z = buffer.z;
-  b.alpha = buffer.alpha;
-  b.beta = buffer.beta;
-  b.gamma = buffer.gamma;
   time++;
-  data.array[buffer.date] = b;
+  data.array.push(copyStruct(buffer));
   document.getElementById("test2").innerHTML = "<ul><li>Date : " + buffer.date + "</li><li>Alpha : " + buffer.alpha + "</li><li>Beta : " + buffer.beta + "</li><li>Gamma : " + buffer.gamma + "</li><li>X : " + buffer.x + "</li><li>Y : " + buffer.y + "</li><li>Z : " + buffer.z + "</li></ul>";
 }

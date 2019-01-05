@@ -1,5 +1,4 @@
 $('#test').click(function() {
-    $.get('php/write.php');
-
-    return false;
+  $.get('php/write.php');
+  return false;
 });

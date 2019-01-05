@@ -7,6 +7,10 @@ var data = {
 
 var buffer = {}
 
+
+/*
+  réinitialise toutes les variables.
+*/
 function clear() {
   time = 0;
   data = {

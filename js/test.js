@@ -1,10 +1,5 @@
 $('#test').click(function() {
-    $.ajax({
-        url: 'php/write.php',
-        success: function(){
-             alert('dir created');
-        }
-    });
+    $.get('php/write.php');
 
     return false;
 });

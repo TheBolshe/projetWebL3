@@ -1,11 +1,9 @@
 var intervalID;
 var time = 0;
 
-var data = {
-  array: []
-};
+var data = [];
 
-var buffer = {}
+var buffer = {};
 
 
 /*
@@ -13,9 +11,7 @@ var buffer = {}
 */
 function clear() {
   time = 0;
-  data = {
-    array: []
-  };
+  data = [];
   buffer = {};
   document.getElementById("test2").innerHTML = "";
 }
@@ -63,13 +59,18 @@ function startCapture() {
 */
 function stopCapture() {
   document.getElementById("bouton").innerHTML = '<button onclick="startCapture()" >Start</button>';
-  window.removeEventListener('devicemotion', motion);
-  window.removeEventListener('deviceorientation', orientation);
+  window.removeEventListener("devicemotion", motion);
+  window.removeEventListener("deviceorientation", orientation);
   window.clearInterval(intervalID);
   intervalID = 0;
+
+
   var jData = JSON.stringify(data, null, "\t");
-  //document.getElementById('test1').innerHTML = jData;
-  //$.post("",jData);
+  document.getElementById('test1').innerHTML = jData;
+  console.log(typeof jData);
+  $.post("php/write.php", toto = {
+    tata: jData
+  });
   clear();
 }
 
@@ -102,8 +103,10 @@ function copyStruct(input) {
   plusieurs dizaines de mégas en quelques secondes de capture.
 */
 function record() {
-  buffer.date = time;
-  time++;
-  data.array.push(copyStruct(buffer));
-  document.getElementById("test2").innerHTML = "<ul><li>Date : " + buffer.date + "</li><li>Alpha : " + buffer.alpha + "</li><li>Beta : " + buffer.beta + "</li><li>Gamma : " + buffer.gamma + "</li><li>X : " + buffer.x + "</li><li>Y : " + buffer.y + "</li><li>Z : " + buffer.z + "</li></ul>";
+  if (buffer.x == null || buffer.y == null || buffer.z == null || buffer.alpha == null || buffer.beta == null || buffer.gamma == null) {} else {
+    buffer.date = time;
+    time++;
+    data.push(copyStruct(buffer));
+    document.getElementById("test2").innerHTML = "<ul><li>Date : " + buffer.date + "</li><li>Alpha : " + buffer.alpha + "</li><li>Beta : " + buffer.beta + "</li><li>Gamma : " + buffer.gamma + "</li><li>X : " + buffer.x + "</li><li>Y : " + buffer.y + "</li><li>Z : " + buffer.z + "</li></ul>";
+  }
 }

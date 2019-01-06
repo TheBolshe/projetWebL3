@@ -1,8 +1,8 @@
 var intervalID;
 var time = 0;
-
+//variable pour stoquer toutes les données relevées
 var data = [];
-
+//buffer changé en temps réeel qui contient les valeurs
 var buffer = {};
 
 
@@ -63,15 +63,23 @@ function stopCapture() {
   window.removeEventListener("deviceorientation", orientation);
   window.clearInterval(intervalID);
   intervalID = 0;
-
-
-  var jData = JSON.stringify(data, null, "\t");
-  document.getElementById('test1').innerHTML = jData;
-  console.log(typeof jData);
-  $.post("php/write.php", toto = {
-    tata: jData
-  });
+  sendData();
   clear();
+}
+
+function name() {
+  return prompt("Name it !", "toto");
+}
+
+function sendData() {
+  var jData = JSON.stringify(data, null, "\t");
+  //document.getElementById('test1').innerHTML = jData;
+  //console.log(typeof jData);
+  var mouvement = name();
+  $.post("php/write.php", toto = {
+    data: jData,
+    name: mouvement
+  });
 }
 
 /*
@@ -100,7 +108,10 @@ function copyStruct(input) {
   en s'assurant que les données entre les deux senseurs sont bien synchronisées.
   De plus la taille de la structure de données est ainsi réduite car les
   senseurs se déclenches beaucoup trop souvent ce qui amène a des fichiers de
-  plusieurs dizaines de mégas en quelques secondes de capture.
+  plusieurs dizaines de mégas en quelques secondes de capture. Pour s'assurer
+  que les valeurs sont utiles elle s'assure qu'aucune d'entre elle n'est
+  strictement egale a 0 ou null (il est peut etre possible de reduire cette
+  condition)
 */
 function record() {
   if (!(buffer.x == 0 || buffer.y == 0 || buffer.z == 0 || buffer.alpha == 0 || buffer.beta == 0 || buffer.gamma == 0 || buffer.x == null || buffer.y == null || buffer.z == null || buffer.alpha == null || buffer.beta == null || buffer.gamma == null)) {

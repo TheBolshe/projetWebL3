@@ -68,7 +68,7 @@ function stopCapture() {
 }
 
 function name() {
-  return prompt("Name it !", "toto");
+  return prompt("Name it !", "");
 }
 
 function sendData() {
@@ -76,10 +76,12 @@ function sendData() {
   //document.getElementById('test1').innerHTML = jData;
   //console.log(typeof jData);
   var mouvement = name();
-  $.post("php/write.php", toto = {
-    data: jData,
-    name: mouvement
-  });
+  if (mouvement != null && mouvement != "") {
+    $.post("php/write.php", toto = {
+      data: jData,
+      name: mouvement
+    });
+  }
 }
 
 /*

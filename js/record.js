@@ -103,7 +103,7 @@ function copyStruct(input) {
   plusieurs dizaines de mégas en quelques secondes de capture.
 */
 function record() {
-  if (buffer.x == null || buffer.y == null || buffer.z == null || buffer.alpha == null || buffer.beta == null || buffer.gamma == null) {} else {
+  if (!(buffer.x == 0 || buffer.y == 0 || buffer.z == 0 || buffer.alpha == 0 || buffer.beta == 0 || buffer.gamma == 0 || buffer.x == null || buffer.y == null || buffer.z == null || buffer.alpha == null || buffer.beta == null || buffer.gamma == null)) {
     buffer.date = time;
     time++;
     data.push(copyStruct(buffer));

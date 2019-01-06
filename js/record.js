@@ -85,7 +85,7 @@ function sendData() {
 /*
   copyStruct() est une fonction qui renvoie une vraie copie de la structure de
   buffer, car essayer de le copier dans une nouvelle variable creeait juste un
-  pointeur vers la structure. Il y a sans doute une methode plus élégante de
+  pointeur vers la structure. Il y a sans doute des methodes plus élégantes de
   faire du deep copying dans JavaScript, sur lequelles nous nous pencherons
   dans le futur
 */

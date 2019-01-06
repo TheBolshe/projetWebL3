@@ -13,7 +13,7 @@ function clear() {
   time = 0;
   data = [];
   buffer = {};
-  document.getElementById("test2").innerHTML = "";
+  //document.getElementById("test2").innerHTML = "";
 }
 
 /*
@@ -39,7 +39,7 @@ function motion(event) {
   s'executera a intervalles réguliers
 */
 function startCapture() {
-  document.getElementById("bouton").innerHTML = '<button onclick="stopCapture()" >Stop</button>';
+  document.getElementById("capture").innerHTML = '<button id="button" onclick="stopCapture()" >Stop</button>';
   if (window.DeviceMotionEvent)
     window.addEventListener('devicemotion', motion, false);
   else
@@ -58,7 +58,7 @@ function startCapture() {
   fenetre et stoppe la fonction d'enregistrement des valeurs
 */
 function stopCapture() {
-  document.getElementById("bouton").innerHTML = '<button onclick="startCapture()" >Start</button>';
+  document.getElementById("capture").innerHTML = '<button id="button" onclick="startCapture()" >Start</button>';
   window.removeEventListener("devicemotion", motion);
   window.removeEventListener("deviceorientation", orientation);
   window.clearInterval(intervalID);
@@ -118,6 +118,6 @@ function record() {
     buffer.date = time;
     time++;
     data.push(copyStruct(buffer));
-    document.getElementById("test2").innerHTML = "<ul><li>Date : " + buffer.date + "</li><li>Alpha : " + buffer.alpha + "</li><li>Beta : " + buffer.beta + "</li><li>Gamma : " + buffer.gamma + "</li><li>X : " + buffer.x + "</li><li>Y : " + buffer.y + "</li><li>Z : " + buffer.z + "</li></ul>";
+    //document.getElementById("test2").innerHTML = "<ul><li>Date : " + buffer.date + "</li><li>Alpha : " + buffer.alpha + "</li><li>Beta : " + buffer.beta + "</li><li>Gamma : " + buffer.gamma + "</li><li>X : " + buffer.x + "</li><li>Y : " + buffer.y + "</li><li>Z : " + buffer.z + "</li></ul>";
   }
 }

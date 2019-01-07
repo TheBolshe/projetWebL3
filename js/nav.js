@@ -1,9 +1,9 @@
 var canRecord = false;
 var buttonsState = 0;
 
-$("#button").toggle();
-$("#out").toggle();
-$("#record").toggle();
+$("#button").hide();
+$("#out").hide();
+$("#record").hide();
 
 function isMobile() {
   var mobile = false;
@@ -24,107 +24,48 @@ $( document ).ready(function() {
  });
 */
 
-function changeButtonState(newState) {
-  switch (newState) {
-    case 0: // browse and profile
-      switch (buttonsState) {
-        case 1:
-          $("#record").toggle();
-          $("#browse").toggle();
-          if ($("#button").is(":hidden") && canRecord) {
-            $("#button").toggle();
-          }
-          buttonsState = 0;
-          break;
-        case 2:
-          $("#record").toggle();
-          $("#mp").toggle();
-          if ($("#button").is(":hidden") && canRecord) {
-            $("#button").toggle();
-          }
-          buttonsState = 0;
-          break;
-        default:
-      }
-      break;
-    case 1: // record and profile
-      switch (buttonsState) {
-        case 0:
-          $("#browse").toggle();
-          $("#record").toggle();
-          if ($("#button").is(":visible") && canRecord) {
-            $("#button").toggle();
-          }
-          buttonsState = 1;
-          break;
-        case 2:
-          $("#browse").toggle();
-          $("#mp").toggle();
-          if ($("#button").is(":visible") && canRecord) {
-            $("#button").toggle();
-          }
-          buttonsState = 1;
-          break;
-        default:
-      }
-      break;
-    case 2: //record and browse
-      switch (buttonsState) {
-        case 0:
-          $("#record").toggle();
-          $("#mp").toggle();
-          if ($("#button").is(":visible") && canRecord) {
-            $("#button").toggle();
-          }
-          buttonsState = 2;
-          break;
-        case 1:
-          $("#mp").toggle();
-          $("#browse").toggle();
-          if ($("#button").is(":visible") && canRecord) {
-            $("#button").toggle();
-          }
-          buttonsState = 2;
-          break;
-        default:
-      }
-      break;
-    default:
-
-  }
-}
-
 function navLogin() {
   var name = prompt("name", "");
   if (name != null && name != "") {
     $.post("php/login.php", {
       name: name
     });
-    $("#in").toggle();
-    $("#out").toggle();
+    $("#in").hide();
+    $("#out").show();
+    $("#button").show();
     canRecord = true;
-    $("#button").toggle();
   }
 }
 
 
 function navLogout() {
   $.post("php/logout.php");
-  $("#in").toggle();
-  $("#out").toggle();
-  $("#button").toggle();
+  $("#in").show();
+  $("#out").hide();
+  $("#button").hide();
   canRecord = false;
 }
 
 function navRecord() {
-  changeButtonState(0);
-  //$("#test").
+  $("#browse").show();
+  $("#mp").show();
+  $("#record").hide();
+  if (canRecord)
+    $("#button").show();
 }
 
 function navBrowse() {
-  changeButtonState(1);
+  $("#browse").hide();
+  $("#mp").show();
+  $("#record").show();
+  if (canRecord)
+    $("#button").hide();
 }
 
 function navProfile() {
-  changeButtonState(2);
+  $("#browse").show();
+  $("#mp").hide();
+  $("#record").show();
+  if (canRecord)
+    $("#button").hide();
 }

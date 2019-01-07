@@ -1,7 +1,7 @@
 var canRecord = false;
 var buttonsState = 0;
 
-//$("#button").toggle();
+$("#button").toggle();
 $("#out").toggle();
 $("#record").toggle();
 
@@ -29,40 +29,64 @@ function changeButtonState(newState) {
     case 0: // browse and profile
       switch (buttonsState) {
         case 1:
-          //$("#")
+          $("#record").toggle();
+          $("#browse").toggle();
+          if ($("#button").is(":hidden") && canRecord) {
+            $("#button").toggle();
+          }
+          buttonsState = 0;
           break;
         case 2:
-
+          $("#record").toggle();
+          $("#mp").toggle();
+          if ($("#button").is(":hidden") && canRecord) {
+            $("#button").toggle();
+          }
+          buttonsState = 0;
           break;
         default:
-
       }
       break;
     case 1: // record and profile
       switch (buttonsState) {
         case 0:
-
+          $("#browse").toggle();
+          $("#record").toggle();
+          if ($("#button").is(":visible") && canRecord) {
+            $("#button").toggle();
+          }
+          buttonsState = 1;
           break;
         case 2:
-
+          $("#browse").toggle();
+          $("#mp").toggle();
+          if ($("#button").is(":visible") && canRecord) {
+            $("#button").toggle();
+          }
+          buttonsState = 1;
           break;
         default:
-
       }
       break;
     case 2: //record and browse
       switch (buttonsState) {
         case 0:
-
+          $("#record").toggle();
+          $("#mp").toggle();
+          if ($("#button").is(":visible") && canRecord) {
+            $("#button").toggle();
+          }
+          buttonsState = 2;
           break;
         case 1:
-
-          break;
-        case 3:
-
+          $("#mp").toggle();
+          $("#browse").toggle();
+          if ($("#button").is(":visible") && canRecord) {
+            $("#button").toggle();
+          }
+          buttonsState = 2;
           break;
         default:
-
       }
       break;
     default:
@@ -79,6 +103,7 @@ function navLogin() {
     $("#in").toggle();
     $("#out").toggle();
     canRecord = true;
+    $("#button").toggle();
   }
 }
 
@@ -87,17 +112,18 @@ function navLogout() {
   $.post("php/logout.php");
   $("#in").toggle();
   $("#out").toggle();
+  $("#button").toggle();
   canRecord = false;
 }
 
 function navRecord() {
-
+  changeButtonState(0);
 }
 
 function navBrowse() {
-
+  changeButtonState(1);
 }
 
 function navProfile() {
-
+  changeButtonState(2);
 }

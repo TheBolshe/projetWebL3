@@ -72,7 +72,7 @@ function name() {
 }
 
 function sendData() {
-  var jData = JSON.stringify(data, null, "\t");
+  var jData = JSON.stringify(data);//, null, "\t");
   //document.getElementById('test1').innerHTML = jData;
   //console.log(typeof jData);
   var mouvement = name();
@@ -120,6 +120,6 @@ function record() {
     buffer.date = time;
     time++;
     data.push(copyStruct(buffer));
-    //document.getElementById("test2").innerHTML = "<ul><li>Date : " + buffer.date + "</li><li>Alpha : " + buffer.alpha + "</li><li>Beta : " + buffer.beta + "</li><li>Gamma : " + buffer.gamma + "</li><li>X : " + buffer.x + "</li><li>Y : " + buffer.y + "</li><li>Z : " + buffer.z + "</li></ul>";
+    document.getElementById("test2").innerHTML = "<ul><li>Date : " + buffer.date + "</li><li>Alpha : " + buffer.alpha + "</li><li>Beta : " + buffer.beta + "</li><li>Gamma : " + buffer.gamma + "</li><li>X : " + buffer.x + "</li><li>Y : " + buffer.y + "</li><li>Z : " + buffer.z + "</li></ul>";
   }
 }

@@ -1,4 +1,7 @@
-$("#main").toggle();
+var canRecord = false;
+var buttonsState = 0;
+
+//$("#button").toggle();
 $("#out").toggle();
 $("#record").toggle();
 
@@ -21,6 +24,52 @@ $( document ).ready(function() {
  });
 */
 
+function changeButtonState(newState) {
+  switch (newState) {
+    case 0: // browse and profile
+      switch (buttonsState) {
+        case 1:
+          //$("#")
+          break;
+        case 2:
+
+          break;
+        default:
+
+      }
+      break;
+    case 1: // record and profile
+      switch (buttonsState) {
+        case 0:
+
+          break;
+        case 2:
+
+          break;
+        default:
+
+      }
+      break;
+    case 2: //record and browse
+      switch (buttonsState) {
+        case 0:
+
+          break;
+        case 1:
+
+          break;
+        case 3:
+
+          break;
+        default:
+
+      }
+      break;
+    default:
+
+  }
+}
+
 function navLogin() {
   var name = prompt("name", "");
   if (name != null && name != "") {
@@ -29,19 +78,26 @@ function navLogin() {
     });
     $("#in").toggle();
     $("#out").toggle();
-    if (isMobile()) {
-      $("#main").toggle();
-    }
+    canRecord = true;
   }
 }
+
 
 function navLogout() {
   $.post("php/logout.php");
   $("#in").toggle();
   $("#out").toggle();
-  if (isMobile()) {
-    $("#main").toggle();
-  }
+  canRecord = false;
 }
 
-function navRecord()
+function navRecord() {
+
+}
+
+function navBrowse() {
+
+}
+
+function navProfile() {
+
+}

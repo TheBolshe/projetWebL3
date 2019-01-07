@@ -118,6 +118,7 @@ function navLogout() {
 
 function navRecord() {
   changeButtonState(0);
+  //$("#test").
 }
 
 function navBrowse() {

@@ -11,18 +11,19 @@
 
 <body>
   <nav>
-    <button class="navigation" id="in" onclick="login()">Log in/Sign in</button>
-    <button class="navigation" id="out" onclick="logout()">Log out</button>
-    <button class="navigation">Browse</button>
-    <button class="navigation">My Profile</button>
+    <button class="navigation" id="in" onclick="navLogin()">Log in/Sign in</button>
+    <button class="navigation" id="out" onclick="navLogout()">Log out</button>
+    <button class="navigation" id="record">Record</button>
+    <button class="navigation" id="browse">Browse</button>
+    <button class="navigation" id="mp">My Profile</button>
   </nav>
-  <div id="capture">
+  <div id="main">
     <button id="button" onclick="startCapture()">Start</button>
   </div>
 
   <script src="js/record.js"></script>
   <script src="js/show.js"></script>
-  <script src="js/logging.js"></script>
+  <script src="js/nav.js"></script>
   <!--
   <p id="test1"></p>
   <p id="test2"></p>

@@ -1,5 +1,6 @@
-$("#capture").toggle();
+$("#main").toggle();
 $("#out").toggle();
+$("#record").toggle();
 
 function isMobile() {
   var mobile = false;
@@ -20,7 +21,7 @@ $( document ).ready(function() {
  });
 */
 
-function login() {
+function navLogin() {
   var name = prompt("name", "");
   if (name != null && name != "") {
     $.post("php/login.php", {
@@ -29,16 +30,18 @@ function login() {
     $("#in").toggle();
     $("#out").toggle();
     if (isMobile()) {
-      $("#capture").toggle();
+      $("#main").toggle();
     }
   }
 }
 
-function logout() {
+function navLogout() {
   $.post("php/logout.php");
   $("#in").toggle();
   $("#out").toggle();
   if (isMobile()) {
-    $("#capture").toggle();
+    $("#main").toggle();
   }
 }
+
+function navRecord()

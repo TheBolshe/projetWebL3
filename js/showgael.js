@@ -1,9 +1,9 @@
-var data [];
-var buffer1 = {};
-var jtdata = JSON.parse(data);
+
 var c = document.getElementById("graphxyz");
 var graph2 = document.getElementById("t");
-function showGraphxyz(d,a,jdata) {
+function showGraphxyz(d,a,sg) {
+  $.getJSON(sg, function(jdata) {
+    //console.log(jTest);
 
   var div=c.width/jdata.length ;
   var ctx = c.getContext("2d")
@@ -11,9 +11,9 @@ function showGraphxyz(d,a,jdata) {
   var i;
 
   for (i = d; i < a; i++) {
-    console.log(i);
-    buffer1 = jdata[i];
-    ctx.lineTo((buffer1.date)*div,200-((buffer1.x) * 2));
+    //console.log(i);
+
+    ctx.lineTo((jdata[i].date)*div,200-((jdata[i].x) * 2));
   }
   ctx.stroke();
   ctx.beginPath();
@@ -23,8 +23,7 @@ function showGraphxyz(d,a,jdata) {
 
 
   for (i = d; i < a; i++) {
-    buffer1 = jdata[i];
-    ctx.lineTo((buffer1.date)*div,200-((buffer1.y) * 2));
+    ctx.lineTo((jdata[i].date)*div,200-((jdata[i].y) * 2));
   }
   ctx.stroke();
   ctx.beginPath();
@@ -33,11 +32,11 @@ function showGraphxyz(d,a,jdata) {
 
 
   for (i = d; i <a; i++) {
-    buffer1 = jdata[i];
-    ctx.lineTo((buffer1.date)*div,200-((buffer1.z) * 2));
+    ctx.lineTo((jdata[i].date)*div,200-((jdata[i].z) * 2));
   }
   ctx.stroke();
 
+});
 }
 function showGraphabg(b,a,jdata) {
 
@@ -47,8 +46,7 @@ function showGraphabg(b,a,jdata) {
   var i;
 
   for (i = b; i < a; i++) {
-    buffer1 = jdata[i];
-    ctx.lineTo((buffer1.date)*div,200-((buffer1.alpha) *0.5));
+    ctx.lineTo((jdata[i].date)*div,200-((jdata[i].alpha) *0.5));
   }
   ctx.stroke();
   ctx.beginPath();
@@ -58,8 +56,7 @@ function showGraphabg(b,a,jdata) {
 
 
   for (i=b; i < a; i++) {
-    buffer1 = jdata[i];
-    ctx.lineTo((buffer1.date)*div,200-((buffer1.beta) * 0.5));
+    ctx.lineTo((jdata[i].date)*div,200-((jdata[i].beta) * 0.5));
   }
   ctx.stroke();
   ctx.beginPath();
@@ -68,11 +65,10 @@ function showGraphabg(b,a,jdata) {
 
 
   for (i=b; i < a; i++) {
-    buffer1 = jdata[i];
-    ctx.lineTo((buffer1.date)*div,200-((buffer1.gamma) *  0.5));
+    ctx.lineTo((jdata[i].date)*div,200-((jdata[i].gamma) *  0.5));
   }
   ctx.stroke();
 
 }
-showGraphabg(0,jdata.length,jtdata);
-showGraphxyz(0,jdata.length,jtdata);
+showGraphabg(0,jdata.length,"data/recordings/jean/caca.json");
+showGraphxyz(0,jdata.length,"data/recordings/jean/caca.json");

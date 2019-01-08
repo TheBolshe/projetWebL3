@@ -40,7 +40,7 @@ function showGraphxyz(d,a,sg) {
 
 });
 }
-function showGraphabg(b,a,jdata) {
+function showGraphabg(b,a,sg) {
   $.getJSON(sg, function(jdata) {
     //console.log(jTest);
     if (a=0){
@@ -76,5 +76,5 @@ function showGraphabg(b,a,jdata) {
   ctx.stroke();
 });
 }
-showGraphabg(0,0,"data/recordings/jean/caca.json");
-showGraphxyz(0,0,"data/recordings/jean/caca.json");
+showGraphabg(0,0,"data/recordings/yoyo/caca.json");
+showGraphxyz(0,0,"data/recordings/yoyo/caca.json");

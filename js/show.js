@@ -76,5 +76,12 @@ function showGraphabg(b,a,sg) {
   ctx.stroke();
 });
 }
-showGraphabg(0,0,"data/recordings/yoyo/caca.json");
-showGraphxyz(0,0,"data/recordings/yoyo/caca.json");
+function navshowGraph() {
+  var name = prompt("Donnée le nom du fichier que vous vouler afficher sous forme nomdossier/nomfichier", "");
+  
+  if (name != null && name != "") {
+  showGraphabg(0,0,"data/recordings/"+name+".json");
+  showGraphxyz(0,0,"data/recordings/"+name+".json");
+
+  }
+}

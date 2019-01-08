@@ -18,7 +18,7 @@ function showGraphxyz(d, a, sg) {
     }
     ctx.stroke();
     ctx.beginPath();
-    ctx.moveTo(d, 0);
+    ctx.moveTo(0, 0);
     ctx.strokeStyle = "green";
 
 
@@ -28,7 +28,7 @@ function showGraphxyz(d, a, sg) {
     }
     ctx.stroke();
     ctx.beginPath();
-    ctx.moveTo(d, 0);
+    ctx.moveTo(0, 0);
     ctx.strokeStyle = "blue";
 
 
@@ -58,7 +58,7 @@ function showGraphabg(b, a, sg) {
     }
     ctx.stroke();
     ctx.beginPath();
-    ctx.moveTo(b, 0);
+    ctx.moveTo(0, 0);
     ctx.strokeStyle = "green";
 
 
@@ -68,7 +68,7 @@ function showGraphabg(b, a, sg) {
     }
     ctx.stroke();
     ctx.beginPath();
-    ctx.moveTo(b, 0);
+    ctx.moveTo(0, 0);
     ctx.strokeStyle = "blue";
 
 
@@ -79,15 +79,13 @@ function showGraphabg(b, a, sg) {
   });
 }
 
-function navshowGraph() {
-  var name = prompt("Donnée le nom du fichier que vous vouler afficher sous forme nomdossier/nomfichier", "");
+function navshowGraph(file) {
 
-  if (name != null && name != "") {
   $("#graphs").replaceWith('<div id="graphs"><canvas id="graphxyz" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas><canvas id="t" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas></div>');
 
     console.log(name);
-    showGraphabg(0, 0, ("data/recordings/"+name+".json"));
-    showGraphxyz(0, 0,( "data/recordings/" + name + ".json"));
+    showGraphabg(0, 0, (file));
+    showGraphxyz(0, 0,( file));
 
   }
 }

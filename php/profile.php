@@ -28,6 +28,7 @@ function is_session_started()
     <li><button onclick="navshowGraph(' . $param . ', ' . $i . ')">Show</button><button>Delete</button></li>
     <li><div id=' . $i . '></div></li>
     </ul>';
+    $i++;
   }
   echo "</div>";
 //}

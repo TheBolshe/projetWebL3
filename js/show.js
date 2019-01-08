@@ -1,9 +1,9 @@
 var debut = 0;
 var fin = 0;
 
-function showGraphxyz(d, a, sg) {
-  console.log(sg);
-  var c = document.getElementById("graphxyz");
+function showGraphxyz(d, a, sg, id) {
+  //console.log(sg);
+  var c = document.getElementById(id);
   $.getJSON(sg, function(jdata) {
     if (a == 0) {
       a = jdata.length;
@@ -14,7 +14,7 @@ function showGraphxyz(d, a, sg) {
     var i;
 
     for (i = d; i < a; i++) {
-      console.log(i);
+      //console.log(i);
 
       ctx.lineTo((jdata[i].date) * div, 200 - ((jdata[i].x) * 2));
     }
@@ -42,9 +42,9 @@ function showGraphxyz(d, a, sg) {
   });
 }
 
-function showGraphabg(b, a, sg) {
-  console.log(sg);
-  var graph2 = document.getElementById("t");
+function showGraphabg(b, a, sg, id) {
+  //console.log(sg);
+  var graph2 = document.getElementById(id);
   $.getJSON(sg, function(jdata) {
     //console.log(jTest);
     if (a == 0) {
@@ -81,11 +81,12 @@ function showGraphabg(b, a, sg) {
   });
 }
 
-function navshowGraph(file) {
-  $("#" + file).replaceWith('<div id="graphs"><canvas id="graphxyz" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas><canvas id="t" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas></div>');
+function navshowGraph(file, string) {
 
-  showGraphabg(0, 0, (file));
-  showGraphxyz(0, 0, (file));
+  $("#"+string).replaceWith('<div id="graphs"><canvas id="' + 'xyz' + string + '" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas><canvas id="' + 'abg' + string + '" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas></div>');
+
+  showGraphabg(0, 0, file, 'abg' + string);
+  showGraphxyz(0, 0, file, 'xyz' + string);
 
 }
 

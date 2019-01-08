@@ -21,11 +21,12 @@ function is_session_started()
   session_start();
   $user_path = "../data/recordings/" . $_SESSION["session_name"];
   echo '<div id="text">';
+  $i = 0;
   foreach(glob($user_path . '/*') as $file) {
     $param = "'" . str_replace("../", '', $file) . "'";
     echo '<ul><li>' . $file . '</li>
-    <li><button onclick="navshowGraph(' . $param . ')">Show</button><button>Delete</button></li>
-    <li><div id="' . $param . '"></div></li>
+    <li><button onclick="navshowGraph(' . $param . ', ' . $i . ')">Show</button><button>Delete</button></li>
+    <li><div id=' . $i . '></div></li>
     </ul>';
   }
   echo "</div>";

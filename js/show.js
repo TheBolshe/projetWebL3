@@ -1,4 +1,5 @@
 function showGraphxyz(d, a, sg) {
+  console.log(sg);
   var c = document.getElementById("graphxyz");
   $.getJSON(sg, function(jdata) {
     //console.log(jTest);
@@ -40,6 +41,7 @@ function showGraphxyz(d, a, sg) {
 }
 
 function showGraphabg(b, a, sg) {
+  console.log(sg);
   var graph2 = document.getElementById("t");
   $.getJSON(sg, function(jdata) {
     //console.log(jTest);
@@ -83,9 +85,9 @@ function navshowGraph() {
   if (name != null && name != "") {
   $("#graphs").replaceWith('<div id="graphs"><canvas id="graphxyz" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas><canvas id="t" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas></div>');
 
-
-    showGraphabg(0, 0, "data/recordings/" + name + ".json");
-    showGraphxyz(0, 0, "data/recordings/" + name + ".json");
+    console.log(name);
+    showGraphabg(0, 0, ("data/recordings/"+name+".json"));
+    showGraphxyz(0, 0,( "data/recordings/" + name + ".json"));
 
   }
 }

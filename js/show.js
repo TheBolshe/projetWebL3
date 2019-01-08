@@ -1,9 +1,12 @@
 var c = document.getElementById("graphxyz");
 var graph2 = document.getElementById("t");
+
 function showGraphxyz(d,a,sg) {
   $.getJSON(sg, function(jdata) {
     //console.log(jTest);
-
+    if (a=0){
+      a=jdata.length;
+    }
   var div=c.width/jdata.length ;
   var ctx = c.getContext("2d")
   ctx.strokeStyle="red";
@@ -38,7 +41,11 @@ function showGraphxyz(d,a,sg) {
 });
 }
 function showGraphabg(b,a,jdata) {
-
+  $.getJSON(sg, function(jdata) {
+    //console.log(jTest);
+    if (a=0){
+      a=jdata.length;
+    }
   var div=c.width/jdata.length;
   var ctx = graph2.getContext("2d")
   ctx.strokeStyle="red";
@@ -67,7 +74,7 @@ function showGraphabg(b,a,jdata) {
     ctx.lineTo((jdata[i].date)*div,200-((jdata[i].gamma) *  0.5));
   }
   ctx.stroke();
-
+});
 }
-showGraphabg(0,jdata.length,"data/recordings/jean/caca.json");
-showGraphxyz(0,jdata.length,"data/recordings/jean/caca.json");
+showGraphabg(0,0,"data/recordings/jean/caca.json");
+showGraphxyz(0,0,"data/recordings/jean/caca.json");

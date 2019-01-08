@@ -62,8 +62,7 @@ function navBrowse() {
   $("#record").show();
   if (canRecord)
     $("#button").hide();
-  else
-    $("#text").replaceWith('<p id="text"></p>');
+  $("#text").replaceWith('<p id="text"></p>');
 }
 
 function navProfile() {

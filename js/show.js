@@ -49,7 +49,7 @@ function showGraphabg(b, a, sg) {
     if (a = 0) {
       a = jdata.length;
     }
-    var div = c.width / jdata.length;
+    var div = graph2.width / jdata.length;
     var ctx = graph2.getContext("2d")
     ctx.strokeStyle = "red";
     var i;
@@ -83,8 +83,7 @@ function navshowGraph() {
   var name = prompt("Donnée le nom du fichier que vous vouler afficher sous forme nomdossier/nomfichier", "");
 
   if (name != null && name != "") {
-  $("#graphs").replaceWith('<div id="graphs"><canvas id="graphxyz" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas>'
-  '<canvas id="t" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas></div>');
+  $("#graphs").replaceWith('<div id="graphs"><canvas id="graphxyz" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas><canvas id="t" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas></div>');
 
 
   showGraphabg(0,0,"data/recordings/"+name+".json");
@@ -93,5 +92,5 @@ function navshowGraph() {
   }
 }
 fonction navtaillegraph(){
-  var taille =prompt("largeur de la fenetre","")
+  var taille =prompt("largeur de la fenetre","");
 }

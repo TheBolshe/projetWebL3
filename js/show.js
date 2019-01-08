@@ -89,6 +89,7 @@ function navshowGraph() {
 
   }
 }
-fonction navtaillegraph() {
-  var taille = prompt("largeur de la fenetre", "")
+/*fonction navtaillegraph() {
+  var taille = prompt("largeur de la fenetre", "");
 }
+*/

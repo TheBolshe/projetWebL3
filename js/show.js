@@ -85,7 +85,6 @@ function navshowGraph(file) {
 
   $("#"+file).replaceWith('<div id="graphs"><canvas id="graphxyz" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas><canvas id="t" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas></div>');
 
-  console.log(name);
   showGraphabg(0, 0, (file));
   showGraphxyz(0, 0, (file));
 

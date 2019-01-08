@@ -1,5 +1,4 @@
 var canRecord = false;
-var buttonsState = 0;
 
 $("#button").hide();
 $("#out").hide();
@@ -52,6 +51,8 @@ function navRecord() {
   $("#record").hide();
   if (canRecord)
     $("#button").show();
+  else
+    $("#text").replaceWith('<p id="text">You must be logged tu record</p>');
 }
 
 function navBrowse() {
@@ -60,6 +61,8 @@ function navBrowse() {
   $("#record").show();
   if (canRecord)
     $("#button").hide();
+  else
+    $("#text").replaceWith('<p id="text"></p>');
 }
 
 function navProfile() {
@@ -68,4 +71,6 @@ function navProfile() {
   $("#record").show();
   if (canRecord)
     $("#button").hide();
+  else
+    $("#text").replaceWith('<p id="text"></p>');
 }

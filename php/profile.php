@@ -22,10 +22,10 @@ function is_session_started()
   $user_path = "../data/recordings/" . $_SESSION["session_name"];
   echo '<div id="text">';
   foreach(glob($user_path . '/*') as $file) {
-
+    $param = "'" . str_replace("../", '', $file) . "'";
     echo '<ul><li>' . $file . '</li>
-    <li><button onclick="navshowGraph(' . str_replace("../", "", $file) . ')">Show</button><button>Delete</button></li>
-    <li><div id="graphs"></div></li>
+    <li><button onclick="navshowGraph(' . $param . ')">Show</button><button>Delete</button></li>
+    <li><div id="' . $param . '"></div></li>
     </ul>';
   }
   echo "</div>";

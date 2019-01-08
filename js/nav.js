@@ -1,5 +1,5 @@
 var canRecord = false;
-
+$.get("php/logout.php");
 $("#button").hide();
 $("#out").hide();
 $("#record").hide();

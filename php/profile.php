@@ -14,16 +14,20 @@ function is_session_started()
     return FALSE;
 }
 
-if (session_status() == PHP_SESSION_NONE) {
+/*if (session_status() != 2) {
   echo '<p id="text">You must be logged</p>';
 } else {
+*/
   session_start();
   $user_path = "../data/recordings/" . $_SESSION["session_name"];
   echo '<div id="text">';
   foreach(glob($user_path . '/*') as $file) {
 
-    echo "<ul><li>$file</li><li><button>Show</button><button>Delete</button></li></ul>";
+    echo '<ul><li>' . $file . '</li>
+    <li><button onclick"navshowGraph()">Show</button><button>Delete</button></li>
+    <li><div id="graphs"></div></li>
+    </ul>';
   }
   echo "</div>";
-}
+//}
 ?>

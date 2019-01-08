@@ -1,6 +1,3 @@
-
-
-
 function showGraphxyz(d, a, sg) {
   var c = document.getElementById("graphxyz");
   $.getJSON(sg, function(jdata) {
@@ -79,18 +76,28 @@ function showGraphabg(b, a, sg) {
     ctx.stroke();
   });
 }
+
 function navshowGraph() {
   var name = prompt("Donnée le nom du fichier que vous vouler afficher sous forme nomdossier/nomfichier", "");
 
   if (name != null && name != "") {
+<<<<<<< HEAD
   $("#graphs").replaceWith('<div id="graphs"><canvas id="graphxyz" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas><canvas id="t" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas></div>');
+=======
+    $("#graphs").replaceWith('<div id="graphs"><canvas id="graphxyz" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas><canvas id="t" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas></div>');
+>>>>>>> 9d9463ff7059b5fef8b426131a1e91967e0ed75e
 
 
-  showGraphabg(0,0,"data/recordings/"+name+".json");
-  showGraphxyz(0,0,"data/recordings/"+name+".json");
+    showGraphabg(0, 0, "data/recordings/" + name + ".json");
+    showGraphxyz(0, 0, "data/recordings/" + name + ".json");
 
   }
 }
+<<<<<<< HEAD
 fonction navtaillegraph(){
   var taille =prompt("largeur de la fenetre","");
+=======
+fonction navtaillegraph() {
+  var taille = prompt("largeur de la fenetre", "")
+>>>>>>> 9d9463ff7059b5fef8b426131a1e91967e0ed75e
 }

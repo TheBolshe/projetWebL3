@@ -77,17 +77,12 @@ function showGraphabg(b, a, sg) {
     ctx.stroke();
   });
 }
-<<<<<<< HEAD
-showGraphabg(0, 0, "data/recordings/yoyo/caca.json");
-showGraphxyz(0, 0, "data/recordings/yoyo/caca.json");
-=======
 function navshowGraph() {
   var name = prompt("Donnée le nom du fichier que vous vouler afficher sous forme nomdossier/nomfichier", "");
-  
+
   if (name != null && name != "") {
   showGraphabg(0,0,"data/recordings/"+name+".json");
   showGraphxyz(0,0,"data/recordings/"+name+".json");
 
   }
 }
->>>>>>> 75331f98b1702f668f93ba5c4893423be983407a

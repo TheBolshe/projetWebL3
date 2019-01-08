@@ -1,3 +1,3 @@
 <?php
-rmdir('../data/recordings/tito');
+unlink($_POST["file"]);
 ?>

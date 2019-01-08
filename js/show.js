@@ -81,12 +81,13 @@ function showGraphabg(b, a, sg, id) {
   });
 }
 
-function navshowGraph(file, string) {
+function navshowGraph(file, id) {
 
-  $("#"+string).replaceWith('<div id="graphs"><canvas id="' + 'xyz' + string + '" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas><canvas id="' + 'abg' + string + '" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas></div>');
-
-  showGraphabg(0, 0, file, 'abg' + string);
-  showGraphxyz(0, 0, file, 'xyz' + string);
+  $("#"+id).replaceWith('<div id="' + id + '"><canvas id="' + 'xyz' + id + '" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas><canvas id="' + 'abg' + id + '" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas></div>');
+  var foo = "b" + id;
+  $("#"+foo).replaceWith('<li id="b' + id + '"><button>Hide</button><button>Delete</button>'</li>);
+  showGraphabg(0, 0, file, 'abg' + id);
+  showGraphxyz(0, 0, file, 'xyz' + id);
 
 }
 

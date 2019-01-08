@@ -24,7 +24,7 @@ function is_session_started()
   foreach(glob($user_path . '/*') as $file) {
 
     echo '<ul><li>' . $file . '</li>
-    <li><button onclick="navshowGraph()">Show</button><button>Delete</button></li>
+    <li><button onclick="navshowGraph(' . str_replace("../", "", $file) . ')">Show</button><button>Delete</button></li>
     <li><div id="graphs"></div></li>
     </ul>';
   }

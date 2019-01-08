@@ -4,8 +4,7 @@ function showGraphxyz(d, a, sg) {
   console.log(sg);
   var c = document.getElementById("graphxyz");
   $.getJSON(sg, function(jdata) {
-    //console.log(jTest);
-    if (a = 0) {
+    if (a == 0) {
       a = jdata.length;
     }
     var div = c.width / (jdata.length-d-(jdata.length-a));
@@ -14,7 +13,7 @@ function showGraphxyz(d, a, sg) {
     var i;
 
     for (i = d; i < a; i++) {
-      //console.log(i);
+      console.log(i);
 
       ctx.lineTo((jdata[i].date) * div, 200 - ((jdata[i].x) * 2));
     }
@@ -47,7 +46,7 @@ function showGraphabg(b, a, sg) {
   var graph2 = document.getElementById("t");
   $.getJSON(sg, function(jdata) {
     //console.log(jTest);
-    if (a = 0) {
+    if (a == 0) {
       a = jdata.length;
     }
     var div = graph2.width / (jdata.length-b(jdata.length-a));

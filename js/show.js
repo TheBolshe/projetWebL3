@@ -50,7 +50,7 @@ function showGraphabg(b, a, sg) {
     if (a == 0) {
       a = jdata.length;
     }
-    var div = graph2.width / (jdata.length - b(jdata.length - a));
+    var div = graph2.width / (jdata.length - b-(jdata.length - a));
     var ctx = graph2.getContext("2d")
     ctx.strokeStyle = "red";
     var i;

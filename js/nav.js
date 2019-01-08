@@ -32,6 +32,7 @@ function navLogin() {
     $("#in").hide();
     $("#out").show();
     $("#button").show();
+    $("#text").replaceWith('<p id="text"></p>');
     canRecord = true;
   }
 }
@@ -69,8 +70,11 @@ function navProfile() {
   $("#browse").show();
   $("#mp").hide();
   $("#record").show();
-  if (canRecord)
-    $("#button").hide();
-  else
-    $("#text").replaceWith('<p id="text"></p>');
+  $("#button").hide();
+  //var sessionName = //<?php echo $_SESSION["session_name"]; ?>;
+  $.get("php/profile.php", function(content) {
+    $("#text").replaceWith(content);
+  });
+  //$("#text").replaceWith('<p id="text"></p>');
+
 }

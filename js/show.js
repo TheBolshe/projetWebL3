@@ -1,5 +1,6 @@
-var debut=0;
-var fin=0;
+var debut = 0;
+var fin = 0;
+
 function showGraphxyz(d, a, sg) {
   console.log(sg);
   var c = document.getElementById("graphxyz");
@@ -7,7 +8,7 @@ function showGraphxyz(d, a, sg) {
     if (a == 0) {
       a = jdata.length;
     }
-    var div = c.width / (jdata.length-d-(jdata.length-a));
+    var div = c.width / (jdata.length - d - (jdata.length - a));
     var ctx = c.getContext("2d")
     ctx.strokeStyle = "red";
     var i;
@@ -49,7 +50,7 @@ function showGraphabg(b, a, sg) {
     if (a == 0) {
       a = jdata.length;
     }
-    var div = graph2.width / (jdata.length-b(jdata.length-a));
+    var div = graph2.width / (jdata.length - b(jdata.length - a));
     var ctx = graph2.getContext("2d")
     ctx.strokeStyle = "red";
     var i;
@@ -84,12 +85,12 @@ function navshowGraph(file) {
 
   $("#graphs").replaceWith('<div id="graphs"><canvas id="graphxyz" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas><canvas id="t" width="800" height="400"  style="border:1px solid#d3d3d3;" ></canvas></div>');
 
-    console.log(name);
-    showGraphabg(0, 0, (file));
-    showGraphxyz(0, 0,( file));
+  console.log(name);
+  showGraphabg(0, 0, (file));
+  showGraphxyz(0, 0, (file));
 
-  }
 }
+
 /*fonction navtaillegraph(){
   var taille =prompt("largeur de la fenetre","");
 }*/

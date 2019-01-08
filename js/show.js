@@ -1,3 +1,5 @@
+var debut=0;
+var fin=0;
 function showGraphxyz(d, a, sg) {
   console.log(sg);
   var c = document.getElementById("graphxyz");
@@ -6,7 +8,7 @@ function showGraphxyz(d, a, sg) {
     if (a = 0) {
       a = jdata.length;
     }
-    var div = c.width / jdata.length;
+    var div = c.width / (jdata.length-d-(jdata.length-a));
     var ctx = c.getContext("2d")
     ctx.strokeStyle = "red";
     var i;
@@ -48,7 +50,7 @@ function showGraphabg(b, a, sg) {
     if (a = 0) {
       a = jdata.length;
     }
-    var div = graph2.width / jdata.length;
+    var div = graph2.width / (jdata.length-b(jdata.length-a));
     var ctx = graph2.getContext("2d")
     ctx.strokeStyle = "red";
     var i;
